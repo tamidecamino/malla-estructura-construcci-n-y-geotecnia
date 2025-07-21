@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malla Curricular Interactiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fff0f5;
+    }
+    h1 {
+      text-align: center;
+      color: #c71585;
+    }
+    .malla {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      overflow-x: auto;
+    }
+    .semestre {
+      background: #ffc0cb;
+      padding: 10px;
+      border-radius: 8px;
+      min-width: 220px;
+    }
+    .semestre h3 {
+      text-align: center;
+      color: #c71585;
+      margin-top: 0;
+    }
+    .curso {
+      margin: 5px 0;
+      padding: 10px;
+      background-color: #ffb6c1;
+      border: 1px solid #c71585;
+      border-radius: 6px;
+      text-align: center;
+      cursor: not-allowed;
+      opacity: 0.3;
+      transition: 0.2s;
+      user-select: none;
+      font-size: 14px;
+    }
+    .curso.activo {
+      opacity: 1;
+      background-color: #ff69b4;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: text;
+    }
+    .curso.habilitado {
+      opacity: 0.6;
+      cursor: pointer;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <h1>Malla Curricular Interactiva</h1>
+  <div class="malla">
+
+    <div class="semestre">
+      <h3>1° Semestre</h3>
+      <div class="curso" data-id="intro-calc">Introducción al Cálculo</div>
+      <div class="curso" data-id="algebra">Álgebra</div>
+      <div class="curso" data-id="fisica-moderna">Física Moderna</div>
+      <div class="curso" data-id="bio-aplicada">Aplicaciones de la Biología a la Ingeniería y Ciencias</div>
+      <div class="curso" data-id="desafios">Desafíos de Innovación en Ingeniería y Ciencias</div>
+      <div class="curso" data-id="herramientas">Herramientas Computacionales para Ingeniería y Ciencias</div>
+    </div>
+
+    <div class="semestre">
+      <h3>2° Semestre</h3>
+      <div class="curso" data-id="intro-fisica" data-req="intro-calc">Introducción a la Física Moderna</div>
+      <div class="curso" data-id="calc-dif" data-req="intro-calc">Cálculo Diferencial e Integral</div>
+      <div class="curso" data-id="lineal" data-req="algebra">Álgebra Lineal</div>
+      <div class="curso" data-id="intro-prog">Introducción a la Programación</div>
+      <div class="curso" data-id="proyectos" data-req="desafios">Proyectos de Innovación en Ingeniería y Ciencias</div>
+      <div class="curso" data-id="formacion-int">Formación Integral</div>
+    </div>
+
+    <div class="semestre">
+      <h3>3° Semestre</h3>
+      <div class="curso" data-id="metodos-exp" data-req="calc-dif,intro-fisica">Métodos Experimentales</div>
+      <div class="curso" data-id="mecanica" data-req="lineal,calc-dif">Mecánica</div>
+      <div class="curso" data-id="varias-vars" data-req="calc-dif,lineal">Cálculo en Varias Variables</div>
+      <div class="curso" data-id="edo" data-req="calc-dif,lineal">Ecuaciones Diferenciales Ordinarias</div>
+      <div class="curso" data-id="quimica">Química</div>
+    </div>
+
+    <div class="semestre">
+      <h3>4° Semestre</h3>
+      <div class="curso" data-id="electromag" data-req="edo,varias-vars,mecanica">Electromagnetismo</div>
+      <div class="curso" data-id="calculo-av" data-req="edo,varias-vars">Cálculo Avanzado y Aplicado</div>
+      <div class="curso" data-id="economia">Economía</div>
+      <div class="curso" data-id="modulo-inter" data-req="metodos-exp,proyectos,formacion-int">Módulo Interdisciplinario</div>
+      <div class="curso" data-id="termodinamica" data-req="mecanica,varias-vars">Termodinámica</div>
+    </div>
+
+    <div class="semestre">
+      <h3>5° Semestre</h3>
+      <div class="curso" data-id="probabilidad" data-req="calculo-av">Probabilidades y Estadísticas</div>
+      <div class="curso" data-id="optimizacion" data-req="calculo-av">Optimización</div>
+      <div class="curso" data-id="mec-estr" data-req="mecanica">Mecánica Estructural</div>
+      <div class="curso" data-id="mec-fluidos" data-req="calculo-av,termodinamica">Mecánica de Fluidos</div>
+      <div class="curso" data-id="transporte" data-req="economia">Análisis de Sistemas de Transporte</div>
+    </div>
+
+    <div class="semestre">
+      <h3>6° Semestre</h3>
+      <div class="curso" data-id="calc-numerico" data-req="probabilidad">Cálculo Numérico para Ingeniería Civil</div>
+      <div class="curso" data-id="hidraulica" data-req="mec-fluidos">Ingeniería Hidráulica</div>
+      <div class="curso" data-id="estruc" data-req="mec-estr">Ingeniería Estructural</div>
+      <div class="curso" data-id="ambiental" data-req="mec-fluidos">Ingeniería Ambiental</div>
+      <div class="curso" data-id="topografia" data-req="metodos-exp,calculo-av">Topografía</div>
+      <div class="curso" data-id="practica1">Taller de Práctica Profesional I</div>
+    </div>
+
+    <div class="semestre">
+      <h3>7° Semestre</h3>
+      <div class="curso" data-id="eval-proy" data-req="economia,probabilidad">Evaluación de Proyectos</div>
+      <div class="curso" data-id="geotecnia" data-req="mec-fluidos,mec-estr">Ingeniería Geotecnia</div>
+      <div class="curso" data-id="dinamica" data-req="estruc,calc-numerico">Dinámica de Estructuras</div>
+      <div class="curso" data-id="materiales" data-req="mec-estr,calc-numerico">Ingeniería de Materiales</div>
+      <div class="curso" data-id="practica-topo" data-req="topografia,practica1,mec-estr,mec-fluidos,transporte">Práctica I Topografía</div>
+      <div class="curso" data-id="electivo1">Electivo</div>
+    </div>
+
+    <div class="semestre">
+      <h3>8° Semestre</h3>
+      <div class="curso" data-id="construccion" data-req="eval-proy,topografia">Construcción</div>
+      <div class="curso" data-id="planificacion" data-req="eval-proy">Planificación y Gestión de Proyectos</div>
+      <div class="curso" data-id="sismico" data-req="geotecnia,dinamica">Diseño Sísmico de Estructuras</div>
+      <div class="curso" data-id="hormigon" data-req="estruc,materiales">Diseño Hormigón Armado</div>
+      <div class="curso" data-id="formacion-int2">Formación Integral</div>
+      <div class="curso" data-id="practica2">Taller de Práctica Profesional II</div>
+    </div>
+
+    <div class="semestre">
+      <h3>9° Semestre</h3>
+      <div class="curso" data-id="diseno-geotecnia" data-req="geotecnia">Diseño Geotécnico</div>
+      <div class="curso" data-id="acero" data-req="estruc,materiales">Diseño de Estructuras de Acero</div>
+      <div class="curso" data-id="proyecto-hormigon" data-req="hormigon,sismico">Proyecto de Hormigón Armado</div>
+      <div class="curso" data-id="proy-construccion" data-req="construccion,materiales">Proyecto de Construcción</div>
+      <div class="curso" data-id="electivo2">Electivo</div>
+      <div class="curso" data-id="practica3">Práctica Profesional II</div>
+    </div>
+
+    <div class="semestre">
+      <h3>10° Semestre</h3>
+      <div class="curso" data-id="habilitacion1" data-req="diseno-geotecnia">Trabajo de Habilitación Profesional I</div>
+      <div class="curso" data-id="suelos-avanzados" data-req="diseno-geotecnia">Mecánica de Suelos Avanzada</div>
+      <div class="curso" data-id="proy-acero" data-req="acero,sismico">Proyecto de Estructuras de Acero</div>
+      <div class="curso" data-id="estruc-avanzada" data-req="sismico">Ingeniería Estructural Avanzada</div>
+      <div class="curso" data-id="electivo3">Electivo Especialidad</div>
+      <div class="curso" data-id="electivo4">Electivo Especialidad</div>
+    </div>
+
+    <div class="semestre">
+      <h3>11° Semestre</h3>
+      <div class="curso" data-id="habilitacion2">Trabajo de Habilitación Profesional II</div>
+      <div class="curso" data-id="formacion-int3">Formación Integral de Especialidad</div>
+      <div class="curso" data-id="practica4">Práctica Profesional III</div>
+    </div>
+
+  </div>
+
+  <script>
+    const cursos = document.querySelectorAll('.curso');
+    const desbloqueados = new Set();
+
+    function actualizarCursos() {
+      cursos.forEach(curso => {
+        const requisitos = curso.dataset.req ? curso.dataset.req.split(',') : [];
+        if (requisitos.length === 0) {
+          // Sin requisitos: activo por defecto
+          curso.classList.add('activo');
+          curso.classList.remove('habilitado');
+          curso.style.cursor = 'pointer';
+          curso.style.opacity = 1;
+          desbloqueados.add(curso.dataset.id);
+        } else {
+          // Cursos con requisitos: solo habilitados si todos cumplidos
+          const habilitado = requisitos.every(req => desbloqueados.has(req));
+          if (habilitado) {
+            if (!desbloqueados.has(curso.dataset.id)) {
+              curso.classList.add('habilitado');
+              curso.classList.remove('activo');
+              curso.style.cursor = 'pointer';
+              curso.style.opacity = 0.6;
+            }
+          } else {
+            curso.classList.remove('habilitado');
+            curso.classList.remove('activo');
+            curso.style.cursor = 'not-allowed';
+            curso.style.opacity = 0.3;
+          }
+        }
+      });
+    }
+
+    cursos.forEach(curso => {
+      curso.addEventListener('click', () => {
+        if (curso.classList.contains('habilitado') && !curso.classList.contains('activo')) {
+          desbloqueados.add(curso.dataset.id);
+          curso.classList.remove('habilitado');
+          curso.classList.add('activo');
+          actualizarCursos();
+        }
+      });
+    });
+
+    // Inicializar
+    actualizarCursos();
+  </script>
+</body>
+</html>
