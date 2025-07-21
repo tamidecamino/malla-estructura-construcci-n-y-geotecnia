@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Curricular Interactiva</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .semestre {
+      background-color: #ffe6f0;
+      border-left: 5px solid #ff69b4;
+      margin: 10px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .semestre h2 {
+      margin-top: 0;
+    }
+    details {
+      margin-left: 20px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .ramo {
+      margin-left: 20px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">📚 Malla Curricular Interactiva</h1>
+
+  <div class="semestre">
+    <h2>1º Semestre</h2>
+    <details>
+      <summary>📘 Introducción al Cálculo</summary>
+      <div class="ramo"></div>
+    </details>
+    <details>
+      <summary>📘 Álgebra y Física Moderna</summary>
+      <div class="ramo"></div>
+    </details>
+    <details>
+      <summary>📘 Aplicaciones de la Biología a la Ingeniería y Ciencia</summary>
+    </details>
+    <details>
+      <summary>📘 Desafíos de Innovación en Ingeniería y Ciencias</summary>
+    </details>
+    <details>
+      <summary>📘 Herramientas Computacionales</summary>
+    </details>
+  </div>
+
+  <div class="semestre">
+    <h2>2º Semestre</h2>
+    <details>
+      <summary>📗 Introducción a la Física Moderna</summary>
+      <div class="ramo">🔗 Requiere Introducción al Cálculo, Álgebra y Física Moderna</div>
+    </details>
+    <details>
+      <summary>📗 Cálculo Diferencial e Integral</summary>
+      <div class="ramo">🔗 Requiere Introducción al Cálculo</div>
+    </details>
+    <details>
+      <summary>📗 Álgebra Lineal</summary>
+      <div class="ramo">🔗 Requiere Álgebra y Física Moderna</div>
+    </details>
+    <details>
+      <summary>📗 Introducción a la Programación</summary>
+    </details>
+    <details>
+      <summary>📗 Proyectos de Innovación en Ingeniería y Ciencias</summary>
+      <div class="ramo">🔗 Requiere Desafíos de Innovación</div>
+    </details>
+    <details>
+      <summary>📗 Formación Integral</summary>
+      <div class="ramo">🔗 Requiere Desafíos de Innovación</div>
+    </details>
+  </div>
+
+  <!-- Aquí puedes seguir agregando los semestres 3 al último con este mismo formato -->
+
+  <div class="semestre">
+    <h2>💡 ¿Cómo funciona?</h2>
+    <p>Haz clic en cada curso para ver qué requiere. Puedes adaptar esta malla fácilmente.</p>
+  </div>
+
+</body>
+</html>
